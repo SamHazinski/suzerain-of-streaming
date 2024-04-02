@@ -4,8 +4,18 @@ body {
 
 .input-group input[type=text]{
 margin: 0px 10px;
+border-left: auto;
 font-size: 17px;
 float: left;
 width: auto;
 background: white;
+}
+
+.input-group button {
+float:left;
+width:auto;
+padding: 10px;
+background: white;
+color: black;
+font-size: 17px;
 }
