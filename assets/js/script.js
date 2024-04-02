@@ -1,0 +1,1 @@
+const bigBox = document.querySelector('#search-form');
