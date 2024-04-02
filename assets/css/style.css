@@ -3,14 +3,9 @@ body {
 }
 
 .input-group input[type=text]{
-padding: -30px;
+margin: 0px 10px;
 font-size: 17px;
 float: left;
 width: auto;
 background: white;
-}
-
-input#search-form.formcontrol{
-    padding: -10px, 12px;
-    display: inline;
 }
