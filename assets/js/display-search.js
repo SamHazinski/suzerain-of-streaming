@@ -45,11 +45,17 @@ async function searchApi(query) {
     console.error(error);
   }
 
-secondApi();
+// secondApi(); //todo take the 
  }
- 
+//add query params
 async function secondApi(){
+    //todo take the ID from the function param and add to the url temporary until query params are added
     const url = 'https://streaming-availability.p.rapidapi.com/get?output_language=en&imdb_id=tt0120338';
+
+
+    //uncomment this when you add querey param
+    // let url = 'https://streaming-availability.p.rapidapi.com/get?output_language=en&imdb_id=';
+    // url += query;
 const options = {
 	method: 'GET',
 	headers: {
@@ -57,14 +63,24 @@ const options = {
 		'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
 	}
 };
-
+//todo take the streaming data in america and return it to the calling function
+let streamingPlat = null;
 try {
 	const response = await fetch(url, options);
 	const result = await response.text();
 	console.log(result);
+    streamingPlat = JSON.parse(result);
+    // console.log(streamingPlat.result.streamingInfo.us);
+    //  console.log(streamingPlat.streamingInfo.us);
+    // return streamingPlat.result.streamingInfo.us;
+
 } catch (error) {
 	console.error(error);
 }
+//return streaminginfo
+console.log(streamingPlat.result.streamingInfo.us);
+
 }
 
-getParams();
+//getParams();
+secondApi();
