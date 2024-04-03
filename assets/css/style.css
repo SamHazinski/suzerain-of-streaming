@@ -1,26 +1,35 @@
-.body {
+body {
     font-family: 'Times New Roman', Times, serif;
-    background-image: url("suz-bgimage.avif");
+    background-image: url("../suz-bgimage.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 /* Styling for the text input */
 .form-control {
 margin:auto;
 width:50%;
 padding:5px;
-display: block;
+display:block;
 border-color: black;
-}
 
+}
 /* Styling for the search button */
 .btn {
 margin:auto;
 display: block;
 border-color: black;
 color:black;
+background-color: white;
 font-weight: bold;
-}
 
-/* Container styling */
-.container_fluid {
-justify-content: center;
+}
+/* Home button styling */
+button {
+    width:10%;
+    margin:auto;
+    font-weight: bold;
+}
+/* Home button text */
+a.Home {
+    color:black;
 }
