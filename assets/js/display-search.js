@@ -1,6 +1,6 @@
-const searchForm = document.querySelector('#search-form');
-const resultContent = document.querySelector('#result-content');
-const resultText = document.querySelector('#result-text');
+// const searchForm = document.querySelector('#search-form');
+// const resultContent = document.querySelector('#result-content');
+// const resultText = document.querySelector('#result-text');
 let tempMovieArr = [];
 // let movieArr = [];
 function getParams() {
@@ -52,20 +52,21 @@ async function searchApi(query) {
     console.log(tempMovieArr[i].Title);
     console.log(tempMovieArr[i].imdbID);
     const newDiv = document.createElement('div');
-    const newH2 = document.createElement('h2')
+    // const newH2 = document.createElement('h2')
     const newCont = document.createTextNode(tempMovieArr[i].Title);
-    const newStreamList = document.createTextNode("streaming services");
+    // const newStreamList = document.createTextNode("streaming services");
     newDiv.style.color = "#ff0000"
-    newH2.style.color = "#ff0000"
+    // newH2.style.color = "#ff0000"
     newDiv.appendChild(newCont);
-    newH2.appendChild(newStreamList);
+    // newH2.appendChild(newStreamList);
     const currentDiv = document.getElementById('#search-form');
     document.body.insertBefore(newDiv, currentDiv);
-    document.body.insertBefore(newH2, currentDiv);
+   
+    // document.body.insertBefore(newH2, currentDiv);
     // console.log(secondApi(tempMovieArr[i].imdbID));
-    let streamingServ = [];
-    streamingServ = secondApi(tempMovieArr[i].imdbID);
-    console.log(streamingServ);
+    // let streamingServ = [];
+    // streamingServ = secondApi(tempMovieArr[i].imdbID);
+    // console.log(streamingServ);
 
 
 }
