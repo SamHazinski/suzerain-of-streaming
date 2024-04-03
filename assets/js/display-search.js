@@ -48,39 +48,42 @@ async function searchApi(query) {
 
 //add a loop to get each movie, grab the id, then create a div, inject movie title and append 
 
-for (let i = 0; i < tempMovieArr.length; i++){
-  console.log(tempMovieArr[i].Title);
-  console.log(tempMovieArr[i].imdbID);
- const newDiv = document.createElement('div');
- const newCont = document.createTextNode(tempMovieArr[i].Title);
- newDiv.style.color = "#ff0000"
- newDiv.appendChild(newCont);
- const currentDiv = document.getElementById('#search-form');
- document.body.insertBefore(newDiv, currentDiv);
+  for (let i = 0; i < tempMovieArr.length; i++) {
+    console.log(tempMovieArr[i].Title);
+    console.log(tempMovieArr[i].imdbID);
+    const newDiv = document.createElement('div');
+    const newH2 = document.createElement('h2')
+    const newCont = document.createTextNode(tempMovieArr[i].Title);
+    const newStreamList = document.createTextNode("streaming services");
+    newDiv.style.color = "#ff0000"
+    newH2.style.color = "#ff0000"
+    newDiv.appendChild(newCont);
+    newH2.appendChild(newStreamList);
+    const currentDiv = document.getElementById('#search-form');
+    document.body.insertBefore(newDiv, currentDiv);
+    document.body.insertBefore(newH2, currentDiv);
+    // console.log(secondApi(tempMovieArr[i].imdbID));
+    let streamingServ = [];
+    streamingServ = secondApi(tempMovieArr[i].imdbID);
+    console.log(streamingServ);
+
 
 }
-
-
-
-
 
 
 
 // secondApi(); //todo take the 
  }
 
- function printResults(){
-  
-}
 //add query params
-async function secondApi(){
+async function secondApi(movieID){
     //todo take the ID from the function param and add to the url temporary until query params are added
-    const url = 'https://streaming-availability.p.rapidapi.com/get?output_language=en&imdb_id=tt0120338';
+    // const url = 'https://streaming-availability.p.rapidapi.com/get?output_language=en&imdb_id=tt0120338';
 
 
     //uncomment this when you add querey param
-    // let url = 'https://streaming-availability.p.rapidapi.com/get?output_language=en&imdb_id=';
-    // url += query;
+    let url = 'https://streaming-availability.p.rapidapi.com/get?output_language=en&imdb_id=';
+    url += movieID;
 const options = {
 	method: 'GET',
 	headers: {
@@ -103,8 +106,8 @@ try {
 	console.error(error);
 }
 //return streaminginfo
-console.log(streamingPlat.result.streamingInfo.us);
-
+// console.log(streamingPlat.result.streamingInfo.us);
+return streamingPlat.result.streamingInfo.us;
 }
 
 getParams();
