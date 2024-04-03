@@ -15,20 +15,20 @@ function getParams() {
 }
 
 async function searchApi(query) {
-    
+
   let url = 'https://movie-database-alternative.p.rapidapi.com/?s=';
-     url += query + "&r=json&page=1";
-    console.log(url);
+  url += query + "&r=json&page=1";
+  console.log(url);
   let movieArr = [];
-  
-    // const url = 'https://imdb188.p.rapidapi.com/api/v1/searchIMDB?query=' + query;
-    const options = {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Key': '2776c6113fmshd4ff5eb1a349755p107a83jsnf157c1db2717',
-          'X-RapidAPI-Host': 'movie-database-alternative.p.rapidapi.com'
-        }
-    };
+
+  // const url = 'https://imdb188.p.rapidapi.com/api/v1/searchIMDB?query=' + query;
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '2776c6113fmshd4ff5eb1a349755p107a83jsnf157c1db2717',
+      'X-RapidAPI-Host': 'movie-database-alternative.p.rapidapi.com'
+    }
+  };
   try {
     let resultsArr = [];
     const response = await fetch(url, options);
@@ -37,11 +37,11 @@ async function searchApi(query) {
     // console.log(JSON.parse(result));
     resultsArr = JSON.parse(result);
     // console.log(resultsArr);
-      // console.log(resultsArr.Search);
+    // console.log(resultsArr.Search);
     const movieArr = resultsArr.Search;
     console.log(movieArr);
-    
-  } 
+
+  }
   catch (error) {
     console.error(error);
   }
