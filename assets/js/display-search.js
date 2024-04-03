@@ -1,8 +1,8 @@
 const searchForm = document.querySelector('#search-form');
 const resultContent = document.querySelector('#result-content');
 const resultText = document.querySelector('#result-text');
-
-
+let tempMovieArr = [];
+// let movieArr = [];
 function getParams() {
     const searchParamsArr = document.location.search.split('&');
     // console.log(searchParamsArr);
@@ -33,21 +33,44 @@ async function searchApi(query) {
     let resultsArr = [];
     const response = await fetch(url, options);
     const result = await response.text();
-    // console.log(result);
-    // console.log(JSON.parse(result));
     resultsArr = JSON.parse(result);
     // console.log(resultsArr);
     // console.log(resultsArr.Search);
     const movieArr = resultsArr.Search;
     console.log(movieArr);
-
+    tempMovieArr = movieArr;
+    
   }
   catch (error) {
     console.error(error);
   }
 
+
+//add a loop to get each movie, grab the id, then create a div, inject movie title and append 
+
+for (let i = 0; i < tempMovieArr.length; i++){
+  console.log(tempMovieArr[i].Title);
+  console.log(tempMovieArr[i].imdbID);
+ const newDiv = document.createElement('div');
+ const newCont = document.createTextNode(tempMovieArr[i].Title);
+ newDiv.appendChild(newCont);
+ const currentDiv = document.getElementById('#search-form');
+ document.body.insertBefore(newDiv, currentDiv);
+    
+}
+
+
+
+
+
+
+
 // secondApi(); //todo take the 
  }
+
+ function printResults(){
+  
+}
 //add query params
 async function secondApi(){
     //todo take the ID from the function param and add to the url temporary until query params are added
