@@ -11,7 +11,9 @@ width:50%;
 padding:5px;
 display:block;
 border-color: black;
-
+position: absolute;
+position: relative;
+top:25rem;
 }
 /* Styling for the search button */
 .btn {
@@ -21,14 +23,35 @@ border-color: black;
 color:black;
 background-color: white;
 font-weight: bold;
+position:absolute;
+right:auto;
+position: relative;
+top:25rem;
 }
 /* Home button styling */
 button {
     width:10%;
     margin:auto;
     font-weight: bold;
+    position: absolute;
+    right: 0;
 }
 /* Home button text */
 a.Home {
     color:black;
+}
+
+div.card {
+position: absolute;
+right:0;
+left: 85rem;
+width:700px;
+height:700px;
+border-color: black;
+background: transparent;
+border: none;
+}
+
+h2 {
+    position:absolute;
 }
