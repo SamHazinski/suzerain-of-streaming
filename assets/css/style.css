@@ -1,8 +1,26 @@
-body {
+.body {
     font-family: 'Times New Roman', Times, serif;
+    background-image: url("suz-bgimage.avif");
 }
-/* styling for the text input*/
+/* Styling for the text input */
+.form-control {
+margin:auto;
+width:50%;
+padding:5px;
+display: block;
+border-color: black;
+}
 
+/* Styling for the search button */
+.btn {
+margin:auto;
+display: block;
+border-color: black;
+color:black;
+font-weight: bold;
+}
 
-/* styling for the search button*/
-
+/* Container styling */
+.container_fluid {
+justify-content: center;
+}
