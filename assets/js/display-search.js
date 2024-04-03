@@ -53,10 +53,11 @@ for (let i = 0; i < tempMovieArr.length; i++){
   console.log(tempMovieArr[i].imdbID);
  const newDiv = document.createElement('div');
  const newCont = document.createTextNode(tempMovieArr[i].Title);
+ newDiv.style.color = "#ff0000"
  newDiv.appendChild(newCont);
  const currentDiv = document.getElementById('#search-form');
  document.body.insertBefore(newDiv, currentDiv);
-    
+
 }
 
 
