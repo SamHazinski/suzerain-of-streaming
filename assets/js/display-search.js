@@ -52,31 +52,45 @@ async function searchApi(query) {
     console.log(tempMovieArr[i].Title);
     console.log(tempMovieArr[i].imdbID);
     const newDiv = document.createElement('div');
-    // const newH2 = document.createElement('h2')
+    let p = document.createElement('p');
+    const newH2 = document.createElement('h2')
     const newCont = document.createTextNode(tempMovieArr[i].Title);
     // const newStreamList = document.createTextNode("streaming services");
     newDiv.style.color = "#ff0000"
-    // newH2.style.color = "#ff0000"
+    p.style.color = "#ff0000"
+    p.textContent = 'Not streaming';
     newDiv.appendChild(newCont);
+    newDiv.appendChild(p);
     // newH2.appendChild(newStreamList);
+    
     const currentDiv = document.getElementById('#search-form');
     document.getElementById('search-form').insertAdjacentElement("afterend", newDiv);
-    
+    newDiv.insertAdjacentElement('afterend', newH2);
+    // newDiv.insertAdjacentElement("afterend", newH2);
     // document.body.insertBefore(newDiv, currentDiv);
 
    
     // document.body.insertBefore(newH2, currentDiv);
-    // console.log(secondApi(tempMovieArr[i].imdbID));
-    // let streamingServ = [];
-    // streamingServ = secondApi(tempMovieArr[i].imdbID);
-    // console.log(streamingServ);
+  
+    let streamingServ = [];
+    streamingServ = secondApi(tempMovieArr[i].imdbID);
+    console.log(streamingServ); //gives the promise result
+    
+    if (streamingServ !=null) {
+      // alert("working!");
+      p.textContent = "working"
+    }
+    else {
+      p.textContent = "null"
+    }
+    
+    
 
+    
 
 }
 
 
-
-// secondApi(); //todo take the 
  }
 
 //add query params
@@ -91,16 +105,18 @@ async function secondApi(movieID){
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '2776c6113fmshd4ff5eb1a349755p107a83jsnf157c1db2717',
+		'X-RapidAPI-Key': '3be648a307msh0edf80f45cb15bdp1f08e6jsne60590bfcaf6',
 		'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
 	}
+  //'X-RapidAPI-Key': '6de0633827msh152ce4f4110ebd9p165680jsneff447427908',
+		//'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
 };
 //todo take the streaming data in america and return it to the calling function
 let streamingPlat = null;
 try {
 	const response = await fetch(url, options);
 	const result = await response.text();
-	console.log(result);
+	// console.log(result);
     streamingPlat = JSON.parse(result);
     // console.log(streamingPlat.result.streamingInfo.us);
     //  console.log(streamingPlat.streamingInfo.us);
