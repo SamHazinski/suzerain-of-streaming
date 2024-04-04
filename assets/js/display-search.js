@@ -60,7 +60,10 @@ async function searchApi(query) {
     newDiv.appendChild(newCont);
     // newH2.appendChild(newStreamList);
     const currentDiv = document.getElementById('#search-form');
-    document.body.insertBefore(newDiv, currentDiv);
+    document.getElementById('search-form').insertAdjacentElement("afterend", newDiv);
+    
+    // document.body.insertBefore(newDiv, currentDiv);
+
    
     // document.body.insertBefore(newH2, currentDiv);
     // console.log(secondApi(tempMovieArr[i].imdbID));
@@ -112,4 +115,4 @@ return streamingPlat.result.streamingInfo.us;
 }
 
 getParams();
-// secondApi();
+
